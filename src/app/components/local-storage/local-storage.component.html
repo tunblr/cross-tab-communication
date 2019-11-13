@@ -1,0 +1,7 @@
+<form>
+  <mat-form-field>
+    <input matInput placeholder="localStorage" [formControl]="inputFormControl">
+  </mat-form-field>
+</form>
+<button mat-flat-button color="primary" (click)="send()">Send Message</button>
+<p>{{ message }}</p>
