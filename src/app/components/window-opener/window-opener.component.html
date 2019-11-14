@@ -1,1 +1,8 @@
-<p>window-opener works!</p>
+<form>
+  <mat-form-field>
+    <input matInput placeholder="Window Opener" [formControl]="inputFormControl">
+  </mat-form-field>
+</form>
+<button mat-flat-button color="primary" [disabled]="disabled" (click)="send()">Send Message</button>
+<button mat-flat-button color="accent" style="margin-left: 5px;" (click)="open()">Open New Tab</button>
+<p>{{ message }}</p>

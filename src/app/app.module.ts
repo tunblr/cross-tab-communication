@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BroadcastChannelComponent } from './components/broadcast-channel/broadcast-channel.component';
@@ -16,7 +18,19 @@ import { LocalStorageComponent } from './components/local-storage/local-storage.
 import { IndexedDbComponent } from './components/indexed-db/indexed-db.component';
 import { WindowOpenerComponent } from './components/window-opener/window-opener.component';
 import { StorageService } from './services/local-storage.service';
-import { environment } from '../environments/environment';
+
+const dbConfig: DBConfig = {
+  name: 'MessageDb', version: 1, objectStoresMeta: [
+    {
+      store: 'test',
+      storeConfig: { keyPath: 'id', autoIncrement: true },
+      storeSchema: [
+        { name: 'msg', keypath: 'msg', options: { unique: false } },
+        { name: 'randomNum', keypath: 'randomNum', options: { unique: false } }
+      ]
+    }
+  ]
+};
 
 @NgModule({
   declarations: [
@@ -32,6 +46,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxIndexedDBModule.forRoot(dbConfig),
     MatButtonModule,
     MatSidenavModule,
     MatRadioModule,

@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 export class ServiceWorkerComponent implements OnInit {
   inputFormControl = new FormControl('');
   message: string;
-  randomCheck: number;
+  private randomNum: number;
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class ServiceWorkerComponent implements OnInit {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js', { scope: '/' });
       navigator.serviceWorker.addEventListener('message', (e) => {
-        if (this.randomCheck === e.data.randomCheck) {
+        if (this.randomNum === e.data.randomNum) {
           return;
         }
         this.message = `Received message: ${e.data.msg}`;
@@ -27,11 +27,11 @@ export class ServiceWorkerComponent implements OnInit {
 
   send() {
     const msg = this.inputFormControl.value;
-    this.randomCheck = Math.random();
+    this.randomNum = Math.random();
     navigator.serviceWorker.ready.then(serviceWorkerRegistration => {
       serviceWorkerRegistration.active.postMessage({
         msg,
-        randomCheck: this.randomCheck,
+        randomNum: this.randomNum,
       });
       this.message = `Sent message: ${msg}`;
     });

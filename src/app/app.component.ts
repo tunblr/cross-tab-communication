@@ -39,6 +39,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.selectedMethod = this.storageService.get(SELECTED_METHOD_KEY);
+    this.router.navigate([this.selectedMethod], {
+      relativeTo: this.activatedRoute,
+    });
     this.storageService.changes.subscribe(method => {
       if (method.key === SELECTED_METHOD_KEY && this.selectedMethod !== method.value) {
         this.selectedMethod = method.value;

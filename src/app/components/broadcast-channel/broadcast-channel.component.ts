@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 const broadcastChannel = new BroadcastChannel('broadcast-channel');
@@ -12,11 +12,14 @@ export class BroadcastChannelComponent implements OnInit {
   inputFormControl = new FormControl('');
   message: string;
 
-  constructor() { }
+  constructor(
+    private cdr: ChangeDetectorRef,
+  ) { }
 
   ngOnInit() {
     broadcastChannel.onmessage = (e) => {
       this.message = `Received message: ${e.data.msg}`;
+      this.cdr.detectChanges();
     };
     broadcastChannel.onmessageerror = (e) => {
       console.log(e);

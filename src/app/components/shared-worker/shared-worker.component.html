@@ -1,1 +1,7 @@
-<p>shared-worker works!</p>
+<form>
+  <mat-form-field>
+    <input matInput placeholder="Shared Worker" [formControl]="inputFormControl">
+  </mat-form-field>
+</form>
+<button mat-flat-button color="primary" (click)="send()">Send Message</button>
+<p>{{ message }}</p>

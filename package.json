@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
+    "@types/sharedworker": "0.0.29",
+    "ngx-indexed-db": "^3.0.5",
     "ngx-markdown": "^8.2.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
