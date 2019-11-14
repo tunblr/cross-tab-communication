@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
     {key: 'local-storage', value: 'localStorage'},
     {key: 'indexed-db', value: 'IndexedDB'},
     {key: 'window-opener', value: 'Window opener'},
+    {key: 'websocket', value: 'Websocket'},
   ];
 
   methodChanged = method => {

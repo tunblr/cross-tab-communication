@@ -6,6 +6,7 @@ import { SharedWorkerComponent } from './components/shared-worker/shared-worker.
 import { LocalStorageComponent } from './components/local-storage/local-storage.component';
 import { IndexedDbComponent } from './components/indexed-db/indexed-db.component';
 import { WindowOpenerComponent } from './components/window-opener/window-opener.component';
+import { WebsocketComponent } from './components/websocket/websocket.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'window-opener',
     component: WindowOpenerComponent,
+  },
+  {
+    path: 'websocket',
+    component: WebsocketComponent,
   },
 ];
 

@@ -17,6 +17,7 @@ import { SharedWorkerComponent } from './components/shared-worker/shared-worker.
 import { LocalStorageComponent } from './components/local-storage/local-storage.component';
 import { IndexedDbComponent } from './components/indexed-db/indexed-db.component';
 import { WindowOpenerComponent } from './components/window-opener/window-opener.component';
+import { WebsocketComponent } from './components/websocket/websocket.component';
 import { StorageService } from './services/local-storage.service';
 
 const dbConfig: DBConfig = {
@@ -41,6 +42,7 @@ const dbConfig: DBConfig = {
     LocalStorageComponent,
     IndexedDbComponent,
     WindowOpenerComponent,
+    WebsocketComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
+let childWins = [];
+
 @Component({
   selector: 'app-window-opener',
   templateUrl: './window-opener.component.html',
   styleUrls: ['./window-opener.component.scss']
 })
 export class WindowOpenerComponent implements OnInit {
-  inputFormControl = new FormControl({ value: [''], disabled: true });
+  inputFormControl = new FormControl('');
   message: string;
-  disabled = true;
-  private childWins = [];
+  disabled = false;
   private randomNum: number;
 
   constructor() { }
 
   ngOnInit() {
+    if (!childWins.length && !window.opener) {
+      this.inputFormControl.disable();
+      this.disabled = true;
+    }
     window.addEventListener('message', e => {
       if (this.randomNum === e.data.randomNum) {
         return;
@@ -28,14 +33,14 @@ export class WindowOpenerComponent implements OnInit {
       }
 
       // release reference when window closed
-      this.childWins = this.childWins.filter(w => !w.closed);
+      childWins = childWins.filter(w => !w.closed);
       // do not send message back
-      if (this.childWins && !e.data.fromOpenner) {
-        this.childWins.forEach(w => w.postMessage(e.data));
+      if (childWins && !e.data.fromOpenner) {
+        childWins.forEach(w => w.postMessage(e.data));
       }
     });
 
-    if (this.childWins.length === 0 && !window.opener) {
+    if (childWins.length === 0 && !window.opener) {
       this.inputFormControl.disable();
       this.disabled = true;
     }
@@ -43,7 +48,7 @@ export class WindowOpenerComponent implements OnInit {
 
   open() {
     const win = window.open('./?new=1');
-    this.childWins.push(win);
+    childWins.push(win);
     this.inputFormControl.enable();
     this.disabled = false;
   }
@@ -55,10 +60,10 @@ export class WindowOpenerComponent implements OnInit {
     this.inputFormControl.setValue('');
 
     // release reference when window closed
-    this.childWins = this.childWins.filter(w => !w.closed);
+    childWins = childWins.filter(w => !w.closed);
 
-    if (this.childWins.length > 0) {
-      this.childWins.forEach(w => w.postMessage({
+    if (childWins.length > 0) {
+      childWins.forEach(w => w.postMessage({
         msg,
         randomNum: this.randomNum,
         fromOpenner: false
