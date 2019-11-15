@@ -5,6 +5,7 @@ import GoEasy from 'goeasy';
 let goEasy = new GoEasy({
   host: 'hangzhou.goeasy.io',
   appkey: 'BC-e3a227f83cb645769494f4683a62647c',
+  forceTLS: window.location.protocol === 'https:',
   onConnected: () => {
     console.log('连接成功！')
   },
