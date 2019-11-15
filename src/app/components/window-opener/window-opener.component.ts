@@ -47,7 +47,7 @@ export class WindowOpenerComponent implements OnInit {
   }
 
   open() {
-    const win = window.open('./?new=1');
+    const win = window.open('./window-opener');
     childWins.push(win);
     this.inputFormControl.enable();
     this.disabled = false;
