@@ -27,7 +27,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/shared.js",
-              "src/sw.js"
+              "src/sw.js",
+              "src/iframe.html"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",

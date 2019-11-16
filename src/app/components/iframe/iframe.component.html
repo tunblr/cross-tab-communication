@@ -1,0 +1,14 @@
+<form>
+  <mat-form-field>
+    <input matInput placeholder="Iframe" [formControl]="inputFormControl">
+  </mat-form-field>
+</form>
+<button mat-flat-button color="primary" (click)="send()">Send Message</button>
+<p>{{ message }}</p>
+
+<iframe id="inline-frame-id"
+        title="Inline Frame Example"
+        width="300"
+        height="200"
+        name="inner-frame"
+        src="https://cross-tab-communication.lhtang.now.sh/iframe.html">

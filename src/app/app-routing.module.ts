@@ -7,6 +7,7 @@ import { LocalStorageComponent } from './components/local-storage/local-storage.
 import { IndexedDbComponent } from './components/indexed-db/indexed-db.component';
 import { WindowOpenerComponent } from './components/window-opener/window-opener.component';
 import { WebsocketComponent } from './components/websocket/websocket.component';
+import { IframeComponent } from './components/iframe/iframe.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'websocket',
     component: WebsocketComponent,
   },
+  {
+    path: 'iframe',
+    component: IframeComponent,
+  }
 ];
 
 @NgModule({

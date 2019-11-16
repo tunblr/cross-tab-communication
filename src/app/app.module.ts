@@ -18,6 +18,7 @@ import { LocalStorageComponent } from './components/local-storage/local-storage.
 import { IndexedDbComponent } from './components/indexed-db/indexed-db.component';
 import { WindowOpenerComponent } from './components/window-opener/window-opener.component';
 import { WebsocketComponent } from './components/websocket/websocket.component';
+import { IframeComponent } from './components/iframe/iframe.component';
 import { StorageService } from './services/local-storage.service';
 
 const dbConfig: DBConfig = {
@@ -40,6 +41,7 @@ const dbConfig: DBConfig = {
     ServiceWorkerComponent,
     SharedWorkerComponent,
     LocalStorageComponent,
+    IframeComponent,
     IndexedDbComponent,
     WindowOpenerComponent,
     WebsocketComponent,

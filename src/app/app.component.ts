@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
     {key: 'indexed-db', value: 'IndexedDB'},
     {key: 'window-opener', value: 'Window opener'},
     {key: 'websocket', value: 'Websocket'},
+    {key: 'iframe', value: 'Iframe'},
   ];
 
   methodChanged = method => {

@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html lang="zh-CN">
+
+<head>
+    <title>Iframe Page</title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Test iframe">
+    <script type="text/javascript">
+        const bc = new BroadcastChannel('iframe');
+        bc.onmessage = function (e) {
+            window.parent.postMessage(e.data, '*');
+        };
+        window.addEventListener('message', function (e) {
+            bc.postMessage(e.data);
+        });
+    </script>
+</head>
+
+<body>
+    这是嵌入的iframe页面，使用BroadcastChannel互相通信
+</body>
+
+</html>
