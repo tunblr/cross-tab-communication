@@ -16,14 +16,14 @@ export class AppComponent implements OnInit {
     key: string;
     value: string;
   }[] = [
-    {key: 'broadcast-channel', value: 'BroadcastChannel'},
-    {key: 'service-worker', value: 'ServiceWorker'},
-    {key: 'shared-worker', value: 'SharedWorker'},
+    {key: 'broadcast-channel', value: 'Broadcast Channel'},
+    {key: 'service-worker', value: 'Service Worker'},
+    {key: 'shared-worker', value: 'Shared Worker'},
     {key: 'local-storage', value: 'localStorage'},
-    {key: 'indexed-db', value: 'IndexedDB'},
-    {key: 'window-opener', value: 'Window opener'},
-    {key: 'websocket', value: 'Websocket'},
-    {key: 'iframe', value: 'Iframe'},
+    {key: 'indexed-db', value: 'IndexedDB / Cookie'},
+    {key: 'window-opener', value: 'window.postMessage()'},
+    {key: 'websocket', value: '服务端消息推送'},
+    {key: 'iframe', value: '嵌入 iframe 跨域通信'},
   ];
 
   methodChanged = method => {
