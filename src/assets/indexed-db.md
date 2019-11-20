@@ -1,8 +1,8 @@
-### Cookie
+## Cookie
 
 Cookie 只能同域使用，而且污染 Cookie 后还额外增加 AJAX 的请求头内容。由于 Cookie 的改变没有事件通知，所以只能采取轮询脏检查来实现业务逻辑。
 
-### IndexedDB
+## IndexedDB
 
 使用 IndexedDB 的思路很简单：消息发送方将消息存至 IndexedDB 中；接收方则通过轮询去获取最新的信息。
 

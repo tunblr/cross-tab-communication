@@ -1,6 +1,6 @@
-### Shared Worker
-Shared Worker 本身并不是为了解决通讯需求的，它的设计初衷应该是类似总控。普通的 Worker 之间是独立运行、数据互不相通，而多个标签页注册的 Shared Worker 则可以实现数据共享。
-Shared Worker 可以被多个 window 共同使用，但必须保证这些标签页都是同源的。
+## Shared Worker
+
+普通的 Worker 之间是独立运行、数据互不相通，而多个标签页注册的 Shared Worker 则可以实现数据共享。我们使用[MessagePort](https://developer.mozilla.org/zh-CN/docs/Web/API/MessagePort)对象访问 Worker。
 Shared Worker 无法主动通知所有页面，所以还是采用轮询的方式来获取数据。思路如下：
 
 让 Shared Worker 支持两种消息。一种是 post，Shared Worker 收到后会将该数据保存下来；另一种是 get，Shared Worker 收到该消息后会将保存的数据通过 postMessage 传给注册它的页面。也就是让页面通过 get 来同步消息。

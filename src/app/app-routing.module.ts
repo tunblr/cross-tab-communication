@@ -8,12 +8,17 @@ import { IndexedDbComponent } from './components/indexed-db/indexed-db.component
 import { WindowOpenerComponent } from './components/window-opener/window-opener.component';
 import { WebsocketComponent } from './components/websocket/websocket.component';
 import { IframeComponent } from './components/iframe/iframe.component';
+import { IndexComponent } from './components/index/index.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'broadcast-channel',
+    redirectTo: 'index',
+  },
+  {
+    path: 'index',
+    component: IndexComponent,
   },
   {
     path: 'broadcast-channel',

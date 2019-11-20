@@ -1,4 +1,4 @@
-### Service Worker
+## Service Worker
 Service Worker 是 PWA （渐进式Web应用）中的核心技术之一，不过在这里用它来做页面间通信。
 
 Service Worker 是一个可以长期运行在后台的 Worker，能够实现与页面的双向通信。多页面注册的同一个 Service Worker 可以共享，将 Service Worker 作为消息中转站即可实现广播效果。

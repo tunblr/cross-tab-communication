@@ -1,4 +1,4 @@
-### BroadCast Channel
+## BroadCast Channel
 BroadCast Channel 可以创建一个用于广播的通信频道。当所有页面都监听同一频道时，其中一个页面通过它广播的消息就会被其他所有页面收到。
 
 创建一个频道名称为broadcast-channel的频道：

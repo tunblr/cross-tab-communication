@@ -11,17 +11,18 @@ const SELECTED_METHOD_KEY = 'selected-method';
 })
 export class AppComponent implements OnInit {
   title = 'cross-tab-communication';
-  selectedMethod = 'broadcast-channel';
+  selectedMethod = 'index';
   methods: {
     key: string;
     value: string;
   }[] = [
-    {key: 'broadcast-channel', value: 'Broadcast Channel'},
-    {key: 'service-worker', value: 'Service Worker'},
-    {key: 'shared-worker', value: 'Shared Worker'},
+    {key: 'index', value: '概览'},
     {key: 'local-storage', value: 'localStorage'},
+    {key: 'broadcast-channel', value: 'Broadcast Channel'},
+    {key: 'shared-worker', value: 'Shared Worker'},
+    {key: 'service-worker', value: 'Service Worker'},
     {key: 'indexed-db', value: 'IndexedDB / Cookie'},
-    {key: 'window-opener', value: 'window.postMessage()'},
+    {key: 'window-opener', value: 'window.postMessage( )'},
     {key: 'websocket', value: '服务端消息推送'},
     {key: 'iframe', value: '嵌入 iframe 跨域通信'},
   ];

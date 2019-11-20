@@ -13,6 +13,7 @@ import { MarkdownModule } from 'ngx-markdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IndexComponent } from './components/index/index.component';
 import { BroadcastChannelComponent } from './components/broadcast-channel/broadcast-channel.component';
 import { ServiceWorkerComponent } from './components/service-worker/service-worker.component';
 import { SharedWorkerComponent } from './components/shared-worker/shared-worker.component';
@@ -39,6 +40,7 @@ const dbConfig: DBConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    IndexComponent,
     BroadcastChannelComponent,
     ServiceWorkerComponent,
     SharedWorkerComponent,
