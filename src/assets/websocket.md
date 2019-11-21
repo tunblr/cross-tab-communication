@@ -49,7 +49,7 @@ app.get('/register', (req, res) => {
 app.get('/broadcast', (req, res) => {
 	clients.forEach(client => {
 		client.write('data:hello\n\n')
-  	// client.write('event:close\ndata:close\n\n')
+  	client.write('event:close\ndata:close\n\n')
 	})
 	res.status(200).end()
 })

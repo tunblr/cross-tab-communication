@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 const worker = new SharedWorker('/shared.js');
@@ -8,30 +8,21 @@ const worker = new SharedWorker('/shared.js');
   templateUrl: './shared-worker.component.html',
   styleUrls: ['./shared-worker.component.scss']
 })
-export class SharedWorkerComponent implements OnInit, OnDestroy {
+export class SharedWorkerComponent implements OnInit {
   inputFormControl = new FormControl('');
   message: string;
   private randomNum: number;
-  private intervalTimer: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.intervalTimer = window.setInterval(() => {
-      worker.port.postMessage({ get: true });
-    }, 1000);
-
     worker.port.addEventListener('message', e => {
-      if (this.randomNum === e.data.randomNum) {
+      if (!e.data || this.randomNum === e.data.randomNum) {
         return;
       }
       this.message = `Received message: ${e.data.msg}`;
     }, false);
     worker.port.start();
-  }
-
-  ngOnDestroy() {
-    window.clearInterval(this.intervalTimer);
   }
 
   send() {

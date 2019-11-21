@@ -64,7 +64,7 @@ window.addEventListener('message', e => {
 
 但是在只打开一个子页面的情况下，或者父页面中嵌入了一个或多个 iframe ，这个方案还是有用武之地的。
 
-postMessage 方法本身兼容性较好，可以跨域传递消息，但需要获取到目标窗口引用才行，而使用 window.open() 打开跨域的页面之后，子页面无法获取 window.opener 的引用。
+postMessage 方法本身兼容性较好，可以跨域传递消息，但需要获取到目标窗口引用才行，而使用 window.open() 打开跨域的页面之后，新打开的页面是无法获取 window.opener 的引用的。
 此外 postMessage 发送的数据不能是 Function、html DOM 元素或对象的某些属性，这是因为发送的数据经过[结构化克隆算法](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm)拷贝，而该算法不支持以上三种类型。
 
 参考：

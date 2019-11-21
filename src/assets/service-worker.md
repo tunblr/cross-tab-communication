@@ -9,6 +9,8 @@ Service Worker 是一个可以长期运行在后台的 Worker，能够实现与�
 /* 页面的代码 */
 navigator.serviceWorker.register('/sw.js', { scope: '/' });
 ```
+Service Worker 可以理解为 Web App 与 互联网之间的一层代理，它可以拦截 Web 应用发送的请求，scope 表示 Service Worker 可拦截的路径，scope 最大可以设置为 Service Worker 脚本所在的路径。
+
 Service Worker 本身并不具备“广播”的功能，添加一些代码，将其改造成消息中转站：
 
 ```javascript
